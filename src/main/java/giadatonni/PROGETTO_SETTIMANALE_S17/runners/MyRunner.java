@@ -58,7 +58,7 @@ public class MyRunner implements CommandLineRunner {
         }*/
 
         /*try {
-          // postazioniService.save("ca3a5f86-aeca-40a3-a862-566b624427b1", "Ampia sala riunioni", TipoPostazione.SALA_RIUNIONI, 16);
+           postazioniService.save("ca3a5f86-aeca-40a3-a862-566b624427b1", "Studio con proiettore", TipoPostazione.PRIVATO, 4);
           // System.out.println(postazioniService.findById("f9408575-a170-41bc-a590-a112fd1dcde5"));
         } catch (NotFoundException ex){
             System.out.println(ex.getMessage());
@@ -69,8 +69,8 @@ public class MyRunner implements CommandLineRunner {
         }*/
 
 
-        try {
-          // prenotazioniService.save(LocalDate.of(2026, 1, 25), 14, "f9408575-a170-41bc-a590-a112fd1dcde5", "3a0e2706-109d-4fc3-9661-dc7fa8eef209");
+        /*try {
+           prenotazioniService.save(LocalDate.of(2026, 2, 25), 4, "d630ca64-c501-4eea-a82d-5a186d422263", "79ae002d-c7bb-4a7b-ad39-5cd0e93ad75a");
           // System.out.println(prenotazioniService.findById("afdad2b4-a8c9-42a0-a461-412a8bad6586"));
           // Utente utente = utentiService.findById("3a0e2706-109d-4fc3-9661-dc7fa8eef209");
           // prenotazioniService.findByUtenteEDataPrenotazione(utente, LocalDate.of(2026, 1, 25)).forEach(System.out::println);
@@ -80,7 +80,7 @@ public class MyRunner implements CommandLineRunner {
             System.out.println("Id non valido");
         } catch (ValidationException ex){
             System.out.println(ex.getMessage());
-        }
+        }*/
 
 
 

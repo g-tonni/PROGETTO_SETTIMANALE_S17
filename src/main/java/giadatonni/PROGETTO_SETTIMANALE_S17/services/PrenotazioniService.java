@@ -24,9 +24,16 @@ public class PrenotazioniService {
         this.postazioniService = postazioniService;
     }
 
+
+    // CONTROLLO SE:
+    // - la data di prenotazione sia prima di oggi
+    // - la postazione sia già prenotata per la data inserita
+    // - il numero delle persone sia almeno uno e non superiore al numeroMaxPersone della postazione
+    // - l'utente sta prenotando in una data in cui ha già prenotato un'altra postazione
     public void save(LocalDate dataPrenotazione, int numeroPersone, String postazioneId, String utenteId){
+        if(dataPrenotazione.isBefore(LocalDate.now())) throw new ValidationException("Impossibile effettuare prenotazioni per date precedenti alla data di oggi");
         Postazione postazione = postazioniService.findById(postazioneId);
-        
+        if(prenotazioniRepository.findByPostazioneAndDataPrenotazione(postazione, dataPrenotazione).size() > 0) throw new ValidationException("La postazione scelta è già prenotata per la data inserita");
         if(numeroPersone < 1 || numeroPersone > postazione.getMaxPersone()) throw new ValidationException("Numero persone non valido");
         Utente utente = utentiService.findById(utenteId);
         if (this.findByUtenteEDataPrenotazione(utente, dataPrenotazione).size() > 0) throw new ValidationException("Una prenotazione per l'utente con id " + utenteId + " è già esistente nella data inserita");
