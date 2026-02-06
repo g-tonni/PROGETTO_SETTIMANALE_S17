@@ -29,6 +29,9 @@ public class Prenotazione {
     @Column(name = "data_scadenza", nullable = false)
     private LocalDate dataScadenza;
 
+    @Column(name = "numero_persone", nullable = false)
+    private int numeroPersone;
+
     @ManyToOne
     @JoinColumn(name = "postazione_id", nullable = false)
     private Postazione postazione;
@@ -37,9 +40,10 @@ public class Prenotazione {
     @JoinColumn(name = "utente_id", nullable = false)
     private Utente utente;
 
-    public Prenotazione(LocalDate dataPrenotazione, Postazione postazione, Utente utente) {
+    public Prenotazione(LocalDate dataPrenotazione, int numeroPersone, Postazione postazione, Utente utente) {
         this.dataPrenotazione = dataPrenotazione;
         this.dataScadenza = dataPrenotazione.plusDays(1);
+        this.numeroPersone = numeroPersone;
         this.postazione = postazione;
         this.utente = utente;
     }
