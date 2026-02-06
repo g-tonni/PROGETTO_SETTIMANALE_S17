@@ -19,6 +19,7 @@ public class UtentiService {
         this.utentiRepository = utentiRepository;
     }
 
+    // CONTROLLO SE L'EMAIL E' GIA' ESISTENTE
     public void save(String username, String nomeECognome, String email){
         Utente utente = new Utente(username, nomeECognome, email);
         if(this.findByEmail(email).size() > 0) throw new ValidationException("Email già esistente");

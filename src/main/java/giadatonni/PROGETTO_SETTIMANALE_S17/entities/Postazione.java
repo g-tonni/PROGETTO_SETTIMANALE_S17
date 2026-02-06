@@ -22,6 +22,7 @@ public class Postazione {
     private String descrizione;
 
     @Column(name = "tipo_postazione", nullable = false)
+    @Enumerated(EnumType.STRING)
     private TipoPostazione tipoPostazione;
 
     @Column(name = "max_persone", nullable = false)
