@@ -1,0 +1,45 @@
+package giadatonni.PROGETTO_SETTIMANALE_S17.entities;
+
+
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.time.LocalDate;
+import java.util.UUID;
+
+@Entity
+@Table(name = "prenotazioni")
+@NoArgsConstructor
+@Getter
+@Setter
+public class Prenotazione {
+
+    @Id
+    @GeneratedValue
+    @Column(name = "prenotazione_id")
+    private UUID prenotazioneId;
+
+    @Column(name = "data_prenotazione", nullable = false)
+    private LocalDate dataPrenotazione;
+
+    @Column(name = "data_scadenza", nullable = false)
+    private LocalDate dataScadenza;
+
+    @ManyToOne
+    @JoinColumn(name = "postazione_id", nullable = false)
+    private Postazione postazione;
+
+    @ManyToOne
+    @JoinColumn(name = "utente_id", nullable = false)
+    private Utente utente;
+
+    public Prenotazione(UUID prenotazioneId, LocalDate dataPrenotazione, Postazione postazione, Utente utente) {
+        this.prenotazioneId = prenotazioneId;
+        this.dataPrenotazione = dataPrenotazione;
+        this.dataScadenza = dataPrenotazione.plusDays(1);
+        this.postazione = postazione;
+        this.utente = utente;
+    }
+}
