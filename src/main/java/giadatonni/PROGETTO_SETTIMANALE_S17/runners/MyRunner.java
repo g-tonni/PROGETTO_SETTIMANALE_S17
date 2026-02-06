@@ -1,7 +1,9 @@
 package giadatonni.PROGETTO_SETTIMANALE_S17.runners;
 
 import giadatonni.PROGETTO_SETTIMANALE_S17.exceptions.NotFoundException;
+import giadatonni.PROGETTO_SETTIMANALE_S17.exceptions.ValidationException;
 import giadatonni.PROGETTO_SETTIMANALE_S17.services.EdificiService;
+import giadatonni.PROGETTO_SETTIMANALE_S17.services.UtentiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -10,9 +12,11 @@ import org.springframework.stereotype.Component;
 public class MyRunner implements CommandLineRunner {
 
     private final EdificiService edificiService;
+    private final UtentiService utentiService;
 
-    public MyRunner(EdificiService edificiService) {
+    public MyRunner(EdificiService edificiService, UtentiService utentiService) {
         this.edificiService = edificiService;
+        this.utentiService = utentiService;
     }
 
     @Override
@@ -25,6 +29,22 @@ public class MyRunner implements CommandLineRunner {
             System.out.println(ex.getMessage());
         } catch (IllegalArgumentException ex){
             System.out.println("Id non valido");
+        }*/
+
+        // utentiService.save("giada21", "Giada Tonni", "giada@giada.com");
+        /*try {
+          // System.out.println(utentiService.findById("3a0e2706-109d-4fc3-9661-dc7fa8eef209"));
+          // System.out.println(utentiService.findByEmail("giada@.com").size());
+
+        } catch (NotFoundException ex){
+            System.out.println(ex.getMessage());
+        } catch (IllegalArgumentException ex){
+            System.out.println("Id non valido");
+        }*/
+        /*try{
+            utentiService.save("diego22", "Diego Bianchi", "diego@diego.com");
+        } catch (ValidationException ex){
+            System.out.println(ex.getMessage());
         }*/
 
     }
