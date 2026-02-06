@@ -8,6 +8,8 @@ public class ProgettoSettimanaleS17Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ProgettoSettimanaleS17Application.class, args);
+
+		System.out.println("Ciao");
 	}
 
 }
