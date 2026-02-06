@@ -57,4 +57,10 @@ public class PrenotazioniService {
     public List<Prenotazione> findByUtenteId(String utenteId){
         return prenotazioniRepository.findByUtenteId(UUID.fromString(utenteId));
     }
+
+    public void verificaPostazioneLibera(String postazioneId, LocalDate data){
+        List<Prenotazione> prenotazioni = prenotazioniRepository.findByPostazioneIdAndData(UUID.fromString(postazioneId), data);
+        if(prenotazioni.size() > 0) System.out.println("Questa postazione è già prenotata per la data inserita");
+        else System.out.println("La postazione selezionata è libera nella data inserita");
+    }
 }

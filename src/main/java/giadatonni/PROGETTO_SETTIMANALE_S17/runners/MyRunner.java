@@ -153,6 +153,6 @@ public class MyRunner implements CommandLineRunner {
         // postazioniService.findByCitta("firenze").forEach(System.out::println);
         // postazioniService.findByCittaAndTipoPostazione("napoli", TipoPostazione.SALA_RIUNIONI).forEach(System.out::println);
         // prenotazioniService.findByUtenteId("563689b7-b812-4589-9c29-ddaed16a87aa").forEach(System.out::println);
-        
+        // prenotazioniService.verificaPostazioneLibera("009011d2-19aa-4b8b-9756-ea221d22a472", LocalDate.of(2026, 2, 21));
     }
 }
