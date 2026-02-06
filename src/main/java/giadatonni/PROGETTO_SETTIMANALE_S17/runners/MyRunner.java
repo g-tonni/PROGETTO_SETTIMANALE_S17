@@ -146,5 +146,13 @@ public class MyRunner implements CommandLineRunner {
         } catch (ValidationException ex){
             System.out.println(ex.getMessage());
         }*/
+
+        // ******************************* TEST METODI
+
+        // postazioniService.findByTipoPostazione(TipoPostazione.PRIVATO).forEach(System.out::println);
+        // postazioniService.findByCitta("firenze").forEach(System.out::println);
+        // postazioniService.findByCittaAndTipoPostazione("napoli", TipoPostazione.SALA_RIUNIONI).forEach(System.out::println);
+        // prenotazioniService.findByUtenteId("563689b7-b812-4589-9c29-ddaed16a87aa").forEach(System.out::println);
+        
     }
 }

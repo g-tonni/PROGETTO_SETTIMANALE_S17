@@ -9,6 +9,7 @@ import giadatonni.PROGETTO_SETTIMANALE_S17.exceptions.ValidationException;
 import giadatonni.PROGETTO_SETTIMANALE_S17.repositories.PostazioniRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -32,5 +33,17 @@ public class PostazioniService {
 
     public Postazione findById(String postazioneId){
         return postazioniRepository.findById(UUID.fromString(postazioneId)).orElseThrow(() -> new NotFoundException(postazioneId));
+    }
+
+    public List<Postazione> findByTipoPostazione(TipoPostazione tipoPostazione){
+        return postazioniRepository.findByTipoPostazione(tipoPostazione);
+    }
+
+    public List<Postazione> findByCitta(String citta){
+        return postazioniRepository.findByCitta(citta);
+    }
+
+    public List<Postazione> findByCittaAndTipoPostazione(String citta, TipoPostazione tipoPostazione){
+        return postazioniRepository.findByCittaAndTipoPostazione(citta, tipoPostazione);
     }
 }

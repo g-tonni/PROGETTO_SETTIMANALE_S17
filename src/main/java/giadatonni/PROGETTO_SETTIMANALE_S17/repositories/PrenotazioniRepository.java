@@ -2,8 +2,10 @@ package giadatonni.PROGETTO_SETTIMANALE_S17.repositories;
 
 import giadatonni.PROGETTO_SETTIMANALE_S17.entities.Postazione;
 import giadatonni.PROGETTO_SETTIMANALE_S17.entities.Prenotazione;
+import giadatonni.PROGETTO_SETTIMANALE_S17.entities.TipoPostazione;
 import giadatonni.PROGETTO_SETTIMANALE_S17.entities.Utente;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
@@ -17,4 +19,6 @@ public interface PrenotazioniRepository extends JpaRepository<Prenotazione, UUID
 
     List<Prenotazione> findByPostazioneAndDataPrenotazione(Postazione postazione, LocalDate dataPrenotazione);
 
+    @Query("SELECT p FROM Prenotazione p WHERE p.utente.utenteId = :utenteId")
+    List<Prenotazione> findByUtenteId(UUID utenteId);
 }

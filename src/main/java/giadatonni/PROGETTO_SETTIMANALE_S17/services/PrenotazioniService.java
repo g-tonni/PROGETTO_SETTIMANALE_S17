@@ -54,4 +54,7 @@ public class PrenotazioniService {
         return prenotazioniRepository.findByPostazioneAndDataPrenotazione(postazione, dataPrenotazione);
     }
 
+    public List<Prenotazione> findByUtenteId(String utenteId){
+        return prenotazioniRepository.findByUtenteId(UUID.fromString(utenteId));
+    }
 }
