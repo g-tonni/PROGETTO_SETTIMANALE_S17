@@ -8,7 +8,6 @@ import java.util.UUID;
 @Entity
 @Table(name = "edifici")
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
 @ToString
@@ -27,4 +26,10 @@ public class Edificio {
 
     @Column(nullable = false)
     private String citta;
+
+    public Edificio(String nome, String indirizzo, String citta) {
+        this.nome = nome;
+        this.indirizzo = indirizzo;
+        this.citta = citta;
+    }
 }

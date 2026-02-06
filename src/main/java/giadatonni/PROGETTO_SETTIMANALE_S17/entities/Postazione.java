@@ -1,19 +1,16 @@
 package giadatonni.PROGETTO_SETTIMANALE_S17.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.UUID;
 
 @Entity
 @Table(name = "postazioni")
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
+@ToString
 public class Postazione {
 
     @Id
@@ -33,4 +30,11 @@ public class Postazione {
     @ManyToOne
     @JoinColumn(name = "edificio_id", nullable = false)
     private Edificio edificio;
+
+    public Postazione(String descrizione, TipoPostazione tipoPostazione, int maxPersone, Edificio edificio) {
+        this.descrizione = descrizione;
+        this.tipoPostazione = tipoPostazione;
+        this.maxPersone = maxPersone;
+        this.edificio = edificio;
+    }
 }

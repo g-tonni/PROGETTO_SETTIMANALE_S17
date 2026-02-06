@@ -8,7 +8,6 @@ import java.util.UUID;
 @Entity
 @Table(name = "utenti")
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
 @ToString
@@ -27,4 +26,10 @@ public class Utente {
 
     @Column(nullable = false)
     private String email;
+
+    public Utente(String username, String nomeECognome, String email) {
+        this.username = username;
+        this.nomeECognome = nomeECognome;
+        this.email = email;
+    }
 }

@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.time.LocalDate;
 import java.util.UUID;
@@ -14,6 +15,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Getter
 @Setter
+@ToString
 public class Prenotazione {
 
     @Id
@@ -35,8 +37,7 @@ public class Prenotazione {
     @JoinColumn(name = "utente_id", nullable = false)
     private Utente utente;
 
-    public Prenotazione(UUID prenotazioneId, LocalDate dataPrenotazione, Postazione postazione, Utente utente) {
-        this.prenotazioneId = prenotazioneId;
+    public Prenotazione(LocalDate dataPrenotazione, Postazione postazione, Utente utente) {
         this.dataPrenotazione = dataPrenotazione;
         this.dataScadenza = dataPrenotazione.plusDays(1);
         this.postazione = postazione;
